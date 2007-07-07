@@ -1,5 +1,5 @@
 %define name 	encfs
-%define version 1.3.1
+%define version 1.3.2
 %define release 1
 %define major	1
 %define libname %mklibname %{name} %{major}
@@ -10,7 +10,7 @@ Version:	%{version}
 Release:	%mkrel %{release}
 License:	GPL
 Group:		File tools
-Source:		%{name}-%{version}-1.tar.bz2
+Source:		%{name}-%{version}-1.tgz
 URL: 		http://arg0.net/wiki/encfs
 Requires:	fuse >= 2.3
 Requires:	dkms-fuse >= 2.3
