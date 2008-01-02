@@ -17,6 +17,7 @@ Requires:	dkms-fuse >= 2.3
 Requires:	openssl >= 0.9.7
 BuildRequires:	rlog-devel >= 1.3, fuse-devel >= 2.5, openssl-devel >= 0.9.7
 BuildRequires:	chrpath
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 EncFS implements an encrypted pass-through filesystem in userspace using 
