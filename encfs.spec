@@ -1,7 +1,7 @@
 %define name 	encfs
-%define version 1.3.2
+%define version 1.4.2
 %define release 1
-%define major	1
+%define major	4
 %define libname %mklibname %{name} %{major}
 
 Summary: 	Encrypted pass-through filesystem for Linux
@@ -10,7 +10,7 @@ Version:	%{version}
 Release:	%mkrel %{release}
 License:	GPL
 Group:		File tools
-Source:		%{name}-%{version}-1.tgz
+Source:		%{name}-%{version}.tgz
 URL: 		http://arg0.net/wiki/encfs
 Requires:	fuse >= 2.3
 Requires:	dkms-fuse >= 2.3
@@ -34,11 +34,11 @@ Libraries for encfs.
 %setup -q
 
 %build
-
-%configure --disable-rpath
+%configure2_5x --disable-rpath
 %make SED=/usr/bin/sed  
 
 %install
+rm -fr %buildroot
 %makeinstall_std
 %find_lang %name
 
@@ -63,4 +63,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %{libname}
 %defattr(-,root,root)
-%{_libdir}/libencfs.so.*
+%{_libdir}/libencfs.so.%{major}*
