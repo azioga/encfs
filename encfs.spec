@@ -1,6 +1,6 @@
 %define name 	encfs
 %define version 1.4.2
-%define release 1
+%define release 2
 %define major	4
 %define libname %mklibname %{name} %{major}
 
