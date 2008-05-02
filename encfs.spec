@@ -8,7 +8,7 @@ Summary: 	Encrypted pass-through filesystem for Linux
 Name:		%{name}
 Version:	%{version}
 Release:	%mkrel %{release}
-License:	GPL
+License:	GPLv3+
 Group:		File tools
 Source:		%{name}-%{version}.tgz
 URL: 		http://arg0.net/wiki/encfs
@@ -35,8 +35,8 @@ Libraries for encfs.
 %setup -q
 
 %build
-%configure2_5x --disable-rpath
-%make SED=/usr/bin/sed  
+%configure2_5x --disable-rpath --with-boost-serialization=boost_serialization-mt
+%make SED=/usr/bin/sed
 
 %install
 rm -fr %buildroot
