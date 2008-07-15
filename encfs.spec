@@ -1,6 +1,6 @@
 %define name 	encfs
 %define version 1.4.2
-%define release 2
+%define release 3
 %define major	4
 %define libname %mklibname %{name} %{major}
 
@@ -13,7 +13,7 @@ Group:		File tools
 Source:		%{name}-%{version}.tgz
 URL: 		http://arg0.net/wiki/encfs
 Requires:	fuse >= 2.3
-Requires:	dkms-fuse >= 2.3
+Requires:	kmod(fuse)
 Requires:	openssl >= 0.9.7
 BuildRequires:	rlog-devel >= 1.3, fuse-devel >= 2.5, openssl-devel >= 0.9.7
 BuildRequires:	chrpath
