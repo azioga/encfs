@@ -51,7 +51,7 @@ Libraries for encfs.
 cp /usr/share/aclocal/ax_boost_system.m4 m4-local/
 autoreconf
 
-%configure2_5x --disable-rpath --with-boost-serialization=boost_serialization-mt
+%configure2_5x --disable-rpath --with-boost-serialization=boost_serialization-mt --with-boost-system=boost_system-mt
 %make SED=/usr/bin/sed
 
 %install
