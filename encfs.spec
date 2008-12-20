@@ -9,7 +9,7 @@
 Summary: 	Encrypted pass-through filesystem for Linux
 Name:		encfs
 Version:	1.4.2
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	GPLv3+
 Group:		File tools
 Source0:	%{name}-%{version}.tgz
