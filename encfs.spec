@@ -8,16 +8,11 @@
 
 Summary: 	Encrypted pass-through filesystem for Linux
 Name:		encfs
-Version:	1.4.2
-Release:	%mkrel 5
+Version:	1.5.2
+Release:	%mkrel 1
 License:	GPLv3+
 Group:		File tools
 Source0:	%{name}-%{version}.tgz
-# Fix build for GCC 4.3 - AdamW 2008/07
-Patch0:		encfs-1.4.2-gcc43.patch
-# Need to include boost-system lib, not just boost-serialization,
-# as source uses symbols in it - AdamW 2008/07
-Patch1:		encfs-1.4.2-boost-system.patch
 URL: 		http://arg0.net/wiki/encfs
 Requires:	fuse >= 2.3
 Requires:	kmod(fuse)
@@ -31,7 +26,7 @@ BuildRequires:	autoconf-archive
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
-EncFS implements an encrypted pass-through filesystem in userspace using 
+EncFS implements an encrypted pass-through filesystem in userspace using
 FUSE. File names and contents are encrypted using OpenSSL.
 
 %package -n 	%{libname}
@@ -41,10 +36,8 @@ Group:		System/Libraries
 %description -n	%{libname}
 Libraries for encfs.
 
-%prep 
-%setup -q
-%patch0 -p1 -b .gcc43
-%patch1 -p1 -b .boost_system
+%prep
+%setup -q -n %{name}-1.5
 
 %build
 # needed for boost-system.patch - AdamW 2008/07
