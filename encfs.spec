@@ -13,6 +13,7 @@ Release:	%mkrel 1
 License:	GPLv3+
 Group:		File tools
 Source0:	%{name}-%{version}.tgz
+Patch0:         encfs-1.5-boost.patch
 URL: 		http://arg0.net/wiki/encfs
 Requires:	fuse >= 2.3
 Requires:	kmod(fuse)
@@ -38,6 +39,7 @@ Libraries for encfs.
 
 %prep
 %setup -q -n %{name}-1.5
+%patch0 -p0 -b .boost
 
 %build
 # needed for boost-system.patch - AdamW 2008/07
