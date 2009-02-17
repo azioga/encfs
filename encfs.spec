@@ -21,8 +21,6 @@ Requires:	openssl >= 0.9.7
 BuildRequires:	rlog-devel >= 1.3, fuse-devel >= 2.5, openssl-devel >= 0.9.7
 BuildRequires:	chrpath
 BuildRequires:	boost-devel
-# for boost-system patch - need the ax_boost_system.m4 file from this
-# for the patch to work - AdamW 2008/07
 BuildRequires:	autoconf-archive
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
@@ -39,13 +37,8 @@ Libraries for encfs.
 
 %prep
 %setup -q -n %{name}-1.5
-%patch0 -p0 -b .boost
 
 %build
-# needed for boost-system.patch - AdamW 2008/07
-cp /usr/share/aclocal/ax_boost_system.m4 m4-local/
-autoreconf
-
 %configure2_5x --disable-rpath --with-boost-serialization=boost_serialization-mt --with-boost-system=boost_system-mt
 %make SED=/usr/bin/sed
 
