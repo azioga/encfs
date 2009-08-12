@@ -13,8 +13,9 @@ Release:	%mkrel 3
 License:	GPLv3+
 Group:		File tools
 Source0:	%{name}-%{version}.tgz
-Patch0:         encfs-1.5-boost.patch
-URL: 		http://arg0.net/wiki/encfs
+# (fc) 1.5.2-3mdv fix build with latest gcc 
+Patch0:		encfs-1.5.2-fixbuild.patch
+URL: 		http://www.arg0.net/encfs
 Requires:	fuse >= 2.3
 Requires:	kmod(fuse)
 Requires:	openssl >= 0.9.7
@@ -37,6 +38,7 @@ Libraries for encfs.
 
 %prep
 %setup -q -n %{name}-1.5
+%patch0 -p1 -b .fixbuild
 
 %build
 %configure2_5x --disable-rpath --with-boost-serialization=boost_serialization-mt --with-boost-system=boost_system-mt --with-boost-libdir=%{_libdir}
