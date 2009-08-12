@@ -39,7 +39,7 @@ Libraries for encfs.
 %setup -q -n %{name}-1.5
 
 %build
-%configure2_5x --disable-rpath --with-boost-serialization=boost_serialization-mt --with-boost-system=boost_system-mt
+%configure2_5x --disable-rpath --with-boost-serialization=boost_serialization-mt --with-boost-system=boost_system-mt --with-boost-libdir=%{_libdir}
 %make SED=/usr/bin/sed
 
 %install
