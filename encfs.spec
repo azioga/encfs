@@ -1,20 +1,16 @@
-# FIXME: Build dies in a massive shower of boost problems without both
-# of these - AdamW 2008/07
-%define _disable_ld_no_undefined 1
-%define _disable_ld_as_needed 1
-
 %define major	4
 %define libname %mklibname %{name} %{major}
 
 Summary: 	Encrypted pass-through filesystem for Linux
 Name:		encfs
 Version:	1.5.2
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	GPLv3+
 Group:		File tools
 Source0:	%{name}-%{version}.tgz
 # (fc) 1.5.2-3mdv fix build with latest gcc 
 Patch0:		encfs-1.5.2-fixbuild.patch
+Patch1:		encfs-1.5.2-fix-linkage.patch
 URL: 		http://www.arg0.net/encfs
 Requires:	fuse >= 2.3
 Requires:	kmod(fuse)
@@ -39,6 +35,7 @@ Libraries for encfs.
 %prep
 %setup -q -n %{name}-1.5
 %patch0 -p1 -b .fixbuild
+%patch1 -p0 -b .link
 
 %build
 %configure2_5x --disable-rpath --with-boost-serialization=boost_serialization-mt --with-boost-system=boost_system-mt --with-boost-libdir=%{_libdir}
