@@ -1,13 +1,13 @@
-%define major	3
+%define major	6
 %define libname %mklibname %{name} %{major}
 
 Summary: 	Encrypted pass-through filesystem for Linux
 Name:		encfs
-Version:	1.6.0
-Release:	%mkrel 3
+Version:	1.7.1
+Release:	%mkrel 1
 License:	GPLv3+
 Group:		File tools
-Source0:	http://encfs.googlecode.com/files/%{name}-1.6-1.tgz
+Source0:	http://encfs.googlecode.com/files/%{name}-%{version}.tgz
 URL: 		http://www.arg0.net/encfs
 Requires:	fuse >= 2.6
 Requires:	kmod(fuse)
@@ -30,7 +30,7 @@ Group:		System/Libraries
 Libraries for encfs.
 
 %prep
-%setup -q -n %{name}-1.6
+%setup -q -n %{name}-%{version}
 
 %build
 %configure2_5x --disable-rpath --with-boost-serialization=boost_serialization-mt --with-boost-system=boost_system-mt --with-boost-libdir=%{_libdir}
