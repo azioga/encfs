@@ -3,8 +3,8 @@
 
 Summary: 	Encrypted pass-through filesystem for Linux
 Name:		encfs
-Version:	1.8.1
-Release:	1
+Version:	1.7.4
+Release:	5
 License:	GPLv3+
 Group:		File tools
 Source0:	http://encfs.googlecode.com/files/%{name}-%{version}.tgz
@@ -17,8 +17,7 @@ BuildRequires:	fuse-devel >= 2.6
 BuildRequires:	openssl-devel >= 0.9.7
 BuildRequires:	chrpath
 BuildRequires:	boost-devel >= 1.34
-#BuildRequires:	autoconf-archive
-BuildRequires:	gettext-devel
+BuildRequires:	autoconf-archive
 
 %description
 EncFS implements an encrypted pass-through filesystem in userspace using
@@ -35,7 +34,7 @@ Libraries for encfs.
 %setup -q -n %{name}-%{version}
 
 %build
--%configure2_5x --disable-rpath --with-boost-libdir=%{_libdir}
+%configure2_5x --disable-rpath --with-boost-libdir=%{_libdir}
 %make SED=/usr/bin/sed
 
 %install
